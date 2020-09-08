@@ -1,10 +1,4 @@
 #!/usr/bin/env python3
-'''
-RPG Character Creator by Caleb Evans is licensed under CC BY-NC-SA 4.0. To view
-a copy of this licence, visit https://creativecommons.org/licenses/by-nc-sa/4.0
-
-This script requires the module tabulate to be installed.
-'''
 
 import random
 import pickle
