@@ -8,16 +8,11 @@ import os
 from distutils.util import strtobool
 from tabulate import tabulate
 
-edit_dict = {
-    '1': 'Power',
-    '2': 'Special Power',
-    '3': 'Speed',
-}
 
 attr_dict = {
-    '1': 'power',
-    '2': 'sp_power',
-    '3': 'speed',
+    '1': ['power', 'Power', ]
+    '2': ['sp_power', 'Special Power',]
+    '3': ['speed', 'Speed',]
 }
 
 headers = [
@@ -104,8 +99,8 @@ def char_edit():
                 globals()['char{0}'.format(edit_no - 1)].name
             )
         )
-        for entry in edit_dict:
-            print('{0}. {1}'.format(entry, edit_dict[entry], ))
+        for entry in attr_dict:
+            print('{0}. {1}'.format(entry, attr_dict[entry][1], ))
         attr_select = input('Which attribute is to be changed? [1-3]: ')
         return attr_edit(attr_select, edit_no)
     print('\n\x1b[31m' + 'Please enter a valid number.' + '\x1b[0m')
@@ -123,7 +118,7 @@ def attr_edit(attr_no, char_no, ):
     if 1 <= attr_val <= 100:
         setattr(
             globals()['char{0}'.format(char_no - 1)],
-            attr_dict[attr_no],
+            attr_dict[attr_no][0],
             attr_val,
         )
         gen_table()
